@@ -1,3 +1,6 @@
+using Homework_Xml_Json.IoC;
+using Homework_Xml_Json.Services.Interfaces;
+
 namespace Homework_Xml_Json
 {
     internal static class Program
@@ -8,10 +11,15 @@ namespace Homework_Xml_Json
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            var container = WindsorConfig.Configure();
+
+            var betService = container.Resolve<IBetService>();
+            var playerService = container.Resolve<IPlayerService>();
+            var gameService = container.Resolve<IGameService>();
+            var fileServiceFactory = container.Resolve<IFileServiceFactory>();
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            Application.Run(new FormMain(fileServiceFactory, betService, playerService, gameService));
         }
     }
 }
