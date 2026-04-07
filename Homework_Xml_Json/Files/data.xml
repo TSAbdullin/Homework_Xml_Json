@@ -1,4 +1,4 @@
-﻿<DataDto>
+﻿<AppData>
 	<Games>
 		<Game>
 			<Id>11111111-1111-1111-1111-111111111111</Id>
@@ -75,4 +75,4 @@
 			</Game>
 		</Bet>
 	</Bets>
-</DataDto>
+</AppData>

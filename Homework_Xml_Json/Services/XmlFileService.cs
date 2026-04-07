@@ -1,13 +1,22 @@
-﻿using Homework_Xml_Json.DTO;
+﻿using Homework_Xml_Json.Models;
 using Homework_Xml_Json.Services.Interfaces;
 using System;
 using System.Xml.Serialization;
 
 namespace Homework_Xml_Json.Services
 {
+    /// <summary>
+    /// Сервис для обработки XML файла
+    /// </summary>
     public class XmlFileService : IFileService
     {
-        public async Task<DataDto> Load(string path)
+        /// <summary>
+        /// Обработка и десереализация XML файла
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public async Task<AppData> Load(string path)
         {
             if (!File.Exists(path))
             {
@@ -16,10 +25,10 @@ namespace Homework_Xml_Json.Services
 
             var xml = await File.ReadAllTextAsync(path);
 
-            var serializer = new XmlSerializer(typeof(DataDto));
+            var serializer = new XmlSerializer(typeof(AppData));
 
             using var reader = new StringReader(xml);
-            var data = serializer.Deserialize(reader) as DataDto;
+            var data = serializer.Deserialize(reader) as AppData;
 
             if (data is null)
             {

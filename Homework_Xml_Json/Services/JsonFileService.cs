@@ -6,6 +6,9 @@ using System.Text.Json;
 
 namespace Homework_Xml_Json.Services
 {
+    /// <summary>
+    /// Сервис для обработки JSON файлов
+    /// </summary>
     public class JsonFileService : IFileService
     {
         private readonly JsonSerializerOptions _options = new JsonSerializerOptions
@@ -13,7 +16,13 @@ namespace Homework_Xml_Json.Services
             PropertyNameCaseInsensitive = true
         };
 
-        public async Task<DataDto> Load(string path)
+        /// <summary>
+        /// Загрузка и десереализация JSON файла
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public async Task<AppData> Load(string path)
         {
             if (!File.Exists(path))
             {
@@ -22,7 +31,7 @@ namespace Homework_Xml_Json.Services
 
             var json = await File.ReadAllTextAsync(path);
 
-            var data = JsonSerializer.Deserialize<DataDto>(json, _options);
+            var data = JsonSerializer.Deserialize<AppData>(json, _options);
 
             if (data is null)
             {

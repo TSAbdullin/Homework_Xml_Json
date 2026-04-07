@@ -3,6 +3,9 @@ using System;
 
 namespace Homework_Xml_Json.Services
 {
+    /// <summary>
+    /// Фабрика для создания файловых сервисов
+    /// </summary>
     public class FileServiceFactory : IFileServiceFactory
     {
         private readonly JsonFileService _jsonService;
@@ -16,6 +19,12 @@ namespace Homework_Xml_Json.Services
             _xmlService = xmlService;
         }
 
+        /// <summary>
+        /// Возвращает файловый сервис по расширению файла
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public IFileService Create(string path)
         {
             if (path.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
