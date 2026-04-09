@@ -23,6 +23,7 @@ namespace Homework_Xml_Json.IoC
                 Component.For<IPlayerService>().ImplementedBy<PlayerService>(),
                 Component.For<IGameService>().ImplementedBy<GameService>(),
                 Component.For<IFileServiceFactory>().ImplementedBy<FileServiceFactory>(),
+                Component.For<IAnalyticsService>().ImplementedBy<AnalyticsService>(),
                 Component.For<JsonFileService>(),
                 Component.For<XmlFileService>()
             );

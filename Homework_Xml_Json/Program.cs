@@ -17,9 +17,10 @@ namespace Homework_Xml_Json
             var playerService = container.Resolve<IPlayerService>();
             var gameService = container.Resolve<IGameService>();
             var fileServiceFactory = container.Resolve<IFileServiceFactory>();
+            var analyticsService = container.Resolve<IAnalyticsService>();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormMain(fileServiceFactory, betService, playerService, gameService));
+            Application.Run(new FormMain(fileServiceFactory, betService, playerService, gameService, analyticsService));
         }
     }
 }

@@ -33,7 +33,7 @@
             treeView = new TreeView();
             mainDgv = new DataGridView();
             loadInfoBtn = new Button();
-            showInfoBtn = new Button();
+            analyticsBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)mainDgv).BeginInit();
             SuspendLayout();
             // 
@@ -42,7 +42,7 @@
             treeView.BorderStyle = BorderStyle.None;
             treeView.Dock = DockStyle.Left;
             treeView.FullRowSelect = true;
-            treeView.ItemHeight = 26;
+            treeView.ItemHeight = 40;
             treeView.Location = new Point(0, 0);
             treeView.Name = "treeView";
             treeView.ShowLines = false;
@@ -72,45 +72,50 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             mainDgv.DefaultCellStyle = dataGridViewCellStyle2;
-            mainDgv.Location = new Point(207, 101);
+            mainDgv.Location = new Point(200, 0);
             mainDgv.MultiSelect = false;
             mainDgv.Name = "mainDgv";
             mainDgv.ReadOnly = true;
             mainDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            mainDgv.Size = new Size(749, 453);
+            mainDgv.Size = new Size(756, 554);
             mainDgv.TabIndex = 1;
             // 
             // loadInfoBtn
             // 
+            loadInfoBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            loadInfoBtn.BackColor = SystemColors.Control;
             loadInfoBtn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            loadInfoBtn.Location = new Point(213, 12);
+            loadInfoBtn.Location = new Point(12, 463);
             loadInfoBtn.Name = "loadInfoBtn";
-            loadInfoBtn.Size = new Size(197, 83);
+            loadInfoBtn.Size = new Size(182, 79);
             loadInfoBtn.TabIndex = 2;
             loadInfoBtn.Text = "Загрузить информацию";
-            loadInfoBtn.UseVisualStyleBackColor = true;
+            loadInfoBtn.UseVisualStyleBackColor = false;
             loadInfoBtn.Click += loadInfoBtn_Click;
             // 
-            // showInfoBtn
+            // analyticsBtn
             // 
-            showInfoBtn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            showInfoBtn.Location = new Point(416, 12);
-            showInfoBtn.Name = "showInfoBtn";
-            showInfoBtn.Size = new Size(197, 83);
-            showInfoBtn.TabIndex = 3;
-            showInfoBtn.Text = "Показать информацию о сущности";
-            showInfoBtn.UseVisualStyleBackColor = true;
+            analyticsBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            analyticsBtn.BackColor = SystemColors.Control;
+            analyticsBtn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            analyticsBtn.Location = new Point(12, 378);
+            analyticsBtn.Name = "analyticsBtn";
+            analyticsBtn.Size = new Size(182, 79);
+            analyticsBtn.TabIndex = 3;
+            analyticsBtn.Text = "Аналитика";
+            analyticsBtn.UseVisualStyleBackColor = false;
+            analyticsBtn.Click += analyticsBtn_Click;
             // 
             // FormMain
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(956, 554);
-            Controls.Add(showInfoBtn);
+            Controls.Add(analyticsBtn);
             Controls.Add(loadInfoBtn);
             Controls.Add(mainDgv);
             Controls.Add(treeView);
             Name = "FormMain";
-            Text = "Form1";
+            Text = "Main";
             ((System.ComponentModel.ISupportInitialize)mainDgv).EndInit();
             ResumeLayout(false);
         }
@@ -120,6 +125,6 @@
         private TreeView treeView;
         private DataGridView mainDgv;
         private Button loadInfoBtn;
-        private Button showInfoBtn;
+        private Button analyticsBtn;
     }
 }
